@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikaFarma</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .navbar {
+            background-color: #28a745;
+        }
+        .footer {
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="TikaFarma" width="120" height="30">
+            TikaFarma
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Colecciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tratamientos Naturales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sistemas de Cuerpo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">CBD Medicinal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ayuda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Iniciar Sesión/Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carrito</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4">Cuidado Facial</h1>
+                <p class="lead">Revisa las ofertas de la semana</p>
+            </div>
+        </div>
+
+        <!-- Products Section: Cuidado Facial -->
+        <div class="row">
+            <!-- Loop a través de los productos de cuidado facial -->
+            {% for product in facial_care_products %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename=product[4]) }}" class="card-img-top" alt="Product Image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product[1] }}</h5>
+                        <p class="card-text">Descripción: {{ product[2] }}</p>
+                        <p class="card-text">Precio: S/{{ product[3] }}</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Featured Section -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h2 class="display-4">Destacados</h2>
+            </div>
+        </div>
+
+        <!-- Products Section: Destacados -->
+        <div class="row">
+            <!-- Loop a través de los productos destacados -->
+            {% for product in featured_products %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename=product[4]) }}" class="card-img-top" alt="Product Image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product[1] }}</h5>
+                        <p class="card-text">Descripción: {{ product[2] }}</p>
+                        <p class="card-text">Precio: S/{{ product[3] }}</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Collections Section -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h2 class="display-4">Colecciones</h2>
+            </div>
+        </div>
+
+        <!-- Products Section: Colecciones -->
+        <div class="row">
+            <!-- Loop a través de los productos de colección -->
+            {% for product in collection_products %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename=product[4]) }}" class="card-img-top" alt="Product Image">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ product[1] }}</h5>
+                        <p class="card-text">Descripción: {{ product[2] }}</p>
+                        <p class="card-text">Precio: S/{{ product[3] }}</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">¿Quiénes Somos?</h5>
+                    <p>
+                        Somos la primera botica peruana especializada en ofrecer productos naturales de belleza y salud procedentes de diversas regiones del Perú. Nuestros métodos combinan alternativas naturales a los productos tradicionales convencionales ofrecidos por las farmacias tradicionales.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contacto</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">contacto@tikafarma.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">+51 123 456 789</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Lima, Perú</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Servicio al Cliente</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="#!" class="text-dark">Preguntas Frecuentes</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Política de Devoluciones</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-dark">Términos y Condiciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

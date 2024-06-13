@@ -1,0 +1,39 @@
+/* Nuevos estilos para las secciones */
+.container {
+    padding-top: 50px; /* Ajuste para mantener el mismo espaciado del contenido bajo el navbar */
+}
+
+.row {
+    margin-right: -15px; /* Ajuste para compensar el padding negativo del contenedor */
+    margin-left: -15px; /* Ajuste para compensar el padding negativo del contenedor */
+}
+
+.row [class^="col-"] {
+    padding-right: 15px; /* Ajuste para compensar el padding negativo del contenedor */
+    padding-left: 15px; /* Ajuste para compensar el padding negativo del contenedor */
+}
+
+.row {
+    margin-bottom: 50px; /* Espaciado entre filas */
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Estilos para cada sección */
+.container-fluid.section-facial,
+.container-fluid.section-destacados,
+.container-fluid.section-colecciones {
+    background-color: #d4edda; /* Color de fondo */
+}
+
+.container-fluid.section-destacados {
+    background-color: #fff3cd; /* Color de fondo */
+}
+
+.container-fluid.section-colecciones {
+    background-color: #f8d7da; /* Color de fondo */
+}
